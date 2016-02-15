@@ -1,0 +1,4 @@
+name = DemTools
+description = Helper functions for DemTools (http://dem.tools)
+core = 7.x
+package = DemTools

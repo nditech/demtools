@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * Return a list of all Features contained within a module.
+ */
+function demtools_features($module, $path = 'modules') {
+  $search_path = drupal_get_path('module', $feature) . '/' . $path;
+  $features = array_diff(scandir($search_path), array('..', '.'));
+  return $features;
+}
+
+/**
+ * Revert all components of specified Features.
+ */
+function demtools_revert_features($features) {
+  foreach ($features as $feature) {
+    $info = drupal_parse_info_file(drupal_get_path('module', $feature) . '/' . $feature . '.info');
+    features_revert(array($feature => array_keys($info['features'])));
+  }
+}
