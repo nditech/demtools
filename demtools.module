@@ -3,8 +3,8 @@
 /**
  * Return a list of all Features contained within a module.
  */
-function demtools_features($module, $path = 'modules') {
-  $search_path = drupal_get_path('module', $feature) . '/' . $path;
+function demtools_get_features($module, $path = 'modules') {
+  $search_path = drupal_get_path('module', $module) . '/' . $path;
   $features = array_diff(scandir($search_path), array('..', '.'));
   return $features;
 }
